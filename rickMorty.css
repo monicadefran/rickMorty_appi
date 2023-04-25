@@ -5,7 +5,7 @@
  }
 
  body{
-   background-image: url("img_fondo/RickMorty_02.jpeg");
+   background-image: url("img_fondo/fondo_3.jpeg");
    background-position: center center;
    background-size: cover;
    font-family:sans-serif;
@@ -125,6 +125,28 @@ font-weight: 600;
   color: yellowgreen;
   font-weight: 600;
   }
+
+ .verPersonajes {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+ }
+
+ .verPersonajes {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+ }
+
+ .verPersonajes button {
+  background: green;
+  color: #ccc;
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+ }
+ 
 
   /**************FOOTER****************/
 

@@ -1,13 +1,23 @@
+
+const API_URL = "https://rickandmortyapi.com/api/character?page=1";
 /* *Declaramos las variables para añadir el html */
 let characters = document.querySelector("#characters");
 
 /* Llamamos a la appi*/
-fetch ("https://rickandmortyapi.com/api/character")
+fetch (API_URL)
    .then((resp) => resp.json())
    .then((data) => {
       /* Tiene dos objetos princiaples*/
-      /* El primero nos va a servir para paginar*/
+      /* El primero nos va a servir para paginar y cargar
+      más caracteres*/
       console.log (data.info);
+     
+      const nextPag = data.info.next;
+      const prevPag = data.info.prev;
+      const nPag = data.info.pages;
+
+     
+   
       /* El segundo nos va dar los resultados por defecto 20*/
       console.log (data.results);
 
