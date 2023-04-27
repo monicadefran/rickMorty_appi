@@ -59,18 +59,29 @@ function updateCharacters() {
          const content = document.createElement ("div");
             content.innerHTML = `
             <!-- INICIO de CARTA-->
-            <div class="flip-card">
-               <div class="flip-card-inner">
+            <div class="container_card">
+               <div class="card_father">
                   <div class="card">
-                        <div class="card_imagen">
-                           <img src="${item.image}" alt>
+                     <div class="card_front">
+                        <div class ="body_card_front">
+                           <div class="card_imagen">
+                                 <img src="${item.image}" alt>
+                              <div class="card_contenido">
+                                 <h3>${item.name}</h3>
+                              </div>
+                           </div>
                         </div>
-                        <div class="card_contenido">
-                           <h3>${item.name}</h3>
-                        </div>
-                        <div class="flip-card-back">
-                        <h4>${item.location.name}</h4>
-                        <h5>${item.species}</h5> 
+                     </div>
+                     <div class="card_back">
+                        <div class ="body_card_back">
+                           <h4 class="n_location">Last Location: </h4>
+                           <h4>${item.location.name}</h4>
+                           <br>
+                           <h5 class="n_species"> Species: </h5>
+                           <h5>${item.species}</h5>
+                           <br>
+                           <h5 class="n_status">Status: </h5>
+                           <h5>${item.status}</h5>
                         </div>
                   </div>
                </div>

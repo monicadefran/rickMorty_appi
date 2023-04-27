@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font-family: "lato", sans-serif;
  }
 
  body{
@@ -16,7 +19,7 @@
    display: grid;
    grid-template-areas:
      "header"
-     "personajes"
+     "contenedor"
      "footer";
    grid-template-rows: auto 1fr auto;
    min-height: 100%;
@@ -41,6 +44,9 @@
 
   
  }
+
+
+ /********* MENU DE NAVEGACION ***********/
 
  nav {
 
@@ -90,13 +96,32 @@ nav ul :hover {
 
 
 
-h4 {
-  color: aliceblue;
+/******** CARD CONTAINER **********/
+
+.contenedor {
+  grid-area: contenedor;
+  background-color: #98ce4c67;
+  margin: 40px;
+  border-radius: 10px;
 }
 
+h4 {
+  color: #0fdff9;
+  font-weight: bold;
+}
 
+.n_location{
+  color: #067bdb;
+}
 
-/******** CARD CONTAINER **********/
+.n_species {
+  color:rgb(49, 49, 49);
+}
+
+.n_status {
+  color:rgb(49, 49, 49);
+}
+
 .characters{
   grid-area:personajes ;
   width: 100%;
@@ -109,80 +134,79 @@ h4 {
 }
 
 .card {
-  display: grid;
-  width: 300px;
-  grid-template-areas:
-  "imagen"
-  "contenido";
-  background-color: #fff;
-  border: 1px solid #ccc;
+  width: 200px;
+  height: 250px;
   border-radius: 5px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  text-overflow: ellipsis;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-}
+  padding: 60px;
+  position: relative;
+  background-color: white;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 
-.card_imagen {
-  grid-area: imagen;
 }
 
 .card_imagen img{
   max-width:100%;
   height: auto;
-  border-radius: 5px 0px;
+  border-radius: 5px;
   max-height: 200px;
+  perspective: 1000px;
 }
 
-.card_contenido {
-  grid-area: contenido;
-  color: yellowgreen;
-  font-family: 'Fira Code', monospace;
-  height: 75px;
-}
+ .container_card{
+  margin-top: 100px;
+  perspective: 1000px;
+ }
 
-.card_contenido h3 {
-color:black;
-font-weight: 600;
-}
+ .card_father {
+  margin: 20px;
+  perspective: 1000px;
+ }
 
-.card_contenido h4 {
-  color: yellowgreen;
-  font-weight: 600;
-  }
-
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
- .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
-
-.flip-card-back {
-  background-color: #2980b9;
-  color: white;
+ .card_father:hover .card {
   transform: rotateY(180deg);
-}
+
+ }
+
+ .card_front,
+ .card_back{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left:0;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  border-radius: 5px;
+ }
+
+ .card_back{
+  transform: rotateY(180deg);
+  background: #009688;
+  width: 200px;
+ }
+
+ .body_card_front {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateZ(60px);
+ }
+
+ .body_card_back {
+  padding: 40px;
+  text-align: center;
+  border-radius: 5px;
+  transform: translateZ(60px);
   
+ }
 
  .verPersonajes {
+ 
   display: flex;
   justify-content: center;
   padding: 10px;
