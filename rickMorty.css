@@ -103,7 +103,22 @@ nav ul :hover {
   background-color: #98ce4c67;
   margin: 40px;
   border-radius: 10px;
+  padding: 10px;
 }
+
+.search-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+  min-width: 300px;
+  font-weight: bold;
+  color: rgb(37 38 85);
+}
+
+input{
+  font-size: 1rem;
+} 
 
 h4 {
   color: #0fdff9;
@@ -154,7 +169,7 @@ h4 {
 }
 
  .container_card{
-  margin-top: 100px;
+  /*margin-top: 100px;*/
   perspective: 1000px;
  }
 
@@ -233,7 +248,6 @@ h4 {
     right: 0;
     background: #009688;
     height: auto;
-    width: 100vw;
     padding:10px;
     color: #fff;
     font-size: 12px;
