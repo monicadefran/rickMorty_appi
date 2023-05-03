@@ -31,7 +31,7 @@ getCharacters(data => {
          </div>
          <!-- FIN de CARTA-->
          `;
-         characters.append(content)
+         characters.append(content);
        
    });
 });
