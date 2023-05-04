@@ -50,7 +50,7 @@ Este es el README para la página web de la rickMorty. La página web utiliza HT
 
 La página web ha sido desplegada en un servidor github pages y está disponible en la siguiente URL: [https://sebasbh.github.io/Pokemon/index.html](https://sebasbh.github.io/Pokemon/index.html)
 
-## Autor
+## Autora
 
 Este proyecto ha sido desarrollado por [Monica Sánchez de Francisco](https://github.com/monicadefran).
 
