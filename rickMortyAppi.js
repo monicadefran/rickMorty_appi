@@ -1,5 +1,3 @@
-
-
 function getCharacters(page, done) {
    const results = fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
 
@@ -96,4 +94,3 @@ function updateCharacters() {
    };
 
 updateCharacters();
-
