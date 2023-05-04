@@ -1,54 +1,40 @@
-const search = () => {
-   const searchBox = document.getElementById ('searchBar').value.toUpperCase();
-   /*const storeitems = document.getElementById("character");*/
-   const product = document.querySelectorAll(".card");
-   const proname = document.getElementsByTagName("h3");
-
-   for(var i=0; i < proname.length; i++){
-       let match = product[i].getElementsByTagName('h3')[0];
-
-       if(match){
-           let textvalue = match.textContent || match.innerHTML
-
-           if(textvalue.toUpperCase().indexOf(searchBox) > -1){
-               product[i].style.display = "";
-           }else{
-               product[i].style.display = "none";
-           }
-       }
-   }
-}
 
 const searchBar = document.getElementById ('searchBar');
-let charactersName = [];
-console.log(charactersName);
+
+searchBar.addEventListener ('keyup', (e) => {
+   const searchString = e.target.value.toLowerCase();
+
+   if (searchString === ''){
+      updateCharacters();
+
+   } else {
+      searchCharacters(searchString);
+      console.log ("entra 1");
+
+   }
+});
 
 
-search.addEventListener ('keyup', (e) => {
-   /*const searchString = e.target.value;
-   console.log (searchString);*/
-   const textoBuscado = e.target.value.trim(); 
-   if (textoBuscado === charactersName) { 
-      searchCharacters(textoBuscado); } 
-      else { 
-         getCharacters(data => { displayCharacters})
-      }
-   }); 
-
-
-   function searchCharacters(query) { 
-      fetch(`https://rickandmortyapi.com/api/character?name=${query}`) 
-      .then(response => response.json()) 
-      .then(data => { displayCharacters(data.results); }) 
-      .catch(error => { console.error('Error al buscar personajes:', error)}
-   )};
-
-   function displayCharacters(characters) { 
-      const main = document.querySelector("main"); 
-      main.innerHTML = ""; 
-      characters.forEach(personaje => 
-         { const article = document.createRange().createContextualFragment(
-            /*html*/` 
+ function searchCharacters(query) {
+   console.log ("entra 2");
+   fetch(`https://rickandmortyapi.com/api/character?name=${query}`)
+     .then(resp => resp.json())
+     .then(data => {
+       displayCharacters(data.results);
+     })
+     .catch(error => {
+       console.error('Error al buscar personajes:', error)
+     });
+ }
+ 
+ function displayCharacters(personajes) {
+   console.log ("entra 3");
+   const content = document.createElement ("div");
+      characters.innerHTML = "";
+      console.log (personajes.length);
+      personajes.forEach(item => {
+         const content = document.createElement ("div");
+            content.innerHTML = `
             <!-- INICIO de CARTA-->
             <div class="container_card">
                <div class="card_father">
@@ -77,8 +63,16 @@ search.addEventListener ('keyup', (e) => {
                   </div>
                </div>
             </div>
-            <!-- FIN de CARTA-->`);
+            <!-- FIN de CARTA-->
+            `;
+            characters.append(content);
+            verPersonajes.innerHTML= '';
+         });        
+   //characters.forEach(character => console.log(character.name.toLowerCase()));
 
-         main.append(article); 
-      });
-   };
+ };
+
+
+ /*searchCharacters("Rick"); // Ejemplo de llamada a la función con el parámetro "Rick" */
+
+

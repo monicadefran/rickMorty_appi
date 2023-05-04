@@ -39,22 +39,27 @@ getCharacters(data => {
 
 let currentPage = 1;
 
-document.getElementById("prevPage").addEventListener("click", () => {
-   if (currentPage > 1) {
-       currentPage--;
-       updateCharacters();
-   }
-});
 
-document.getElementById("nextPage").addEventListener("click", () => {
-   currentPage++;
-   updateCharacters();
-});
 
 function updateCharacters() {
    getCharacters(currentPage, data => {  
       const content = document.createElement ("div");
       characters.innerHTML = "";
+      verPersonajes.innerHTML = `
+      <button id="prevPage">Anterior</button>
+      <button id="nextPage">Siguiente</button>
+      `
+      document.getElementById("prevPage").addEventListener("click", () => {
+         if (currentPage > 1) {
+             currentPage--;
+             updateCharacters();
+         }
+      });
+      
+      document.getElementById("nextPage").addEventListener("click", () => {
+         currentPage++;
+         updateCharacters();
+      });
       data.results.forEach(item => {
          const content = document.createElement ("div");
             content.innerHTML = `
@@ -89,8 +94,11 @@ function updateCharacters() {
             <!-- FIN de CARTA-->
             `;
             characters.append(content)
+            
+            
          });        
       });
    };
 
 updateCharacters();
+
