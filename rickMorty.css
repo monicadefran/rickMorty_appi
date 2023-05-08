@@ -1,3 +1,4 @@
+/** Call the google fonts**/
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 * {
@@ -46,7 +47,7 @@
  }
 
 
- /********* MENU DE NAVEGACION ***********/
+ /*********  NAVIGATION MENU  ***********/
 
  nav {
 
@@ -65,7 +66,7 @@ nav ul {
 nav ul li {
   padding: 8px 15px;
   border-radius: 10px;
-  transition: 0.2s ease-in;/* Hace un efecto en el hover*/
+  transition: 0.2s ease-in;/* Does a hover effect */
 }
 
 nav ul li a {
@@ -87,7 +88,7 @@ nav ul li a:link, a:visited {
 
 nav ul li a:hover, a:active {
   background-color: #97ce4c;
-  color: #3F51B5;
+  color: #3f88b5;
 }
 
 nav ul :hover {

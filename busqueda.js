@@ -1,13 +1,19 @@
 
+// Call to the searchBar Id
 const searchBar = document.getElementById ('searchBar');
 
+// Add an eventlistener Keyup event
 searchBar.addEventListener ('keyup', (e) => {
+   //Catch the value inserter in the seachBar and convert to lower case 
    const searchString = e.target.value.toLowerCase();
 
+   // If the file is empty call to upateCharacter to show the current web and the buttoms
    if (searchString === ''){
       updateCharacters();
 
    } else {
+      /* If not, call the searcharacter funtion in order search 
+      the name of the charachaters the users enter in the search bar*/
       searchCharacters(searchString);
       console.log ("entra 1");
 
@@ -17,9 +23,11 @@ searchBar.addEventListener ('keyup', (e) => {
 
  function searchCharacters(query) {
    console.log ("entra 2");
+   // Call the api to charger the name of the character
    fetch(`https://rickandmortyapi.com/api/character?name=${query}`)
      .then(resp => resp.json())
      .then(data => {
+      //Call display characters function and show only the character
        displayCharacters(data.results);
      })
      .catch(error => {
@@ -27,6 +35,7 @@ searchBar.addEventListener ('keyup', (e) => {
      });
  }
  
+ // Function to show the user´s characters are looking for
  function displayCharacters(personajes) {
    console.log ("entra 3");
    const content = document.createElement ("div");
@@ -68,11 +77,8 @@ searchBar.addEventListener ('keyup', (e) => {
             characters.append(content);
             verPersonajes.innerHTML= '';
          });        
-   //characters.forEach(character => console.log(character.name.toLowerCase()));
-
  };
 
-
- /*searchCharacters("Rick"); // Ejemplo de llamada a la función con el parámetro "Rick" */
+ 
 
 

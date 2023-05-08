@@ -1,3 +1,4 @@
+// Call the app to charge the page and load the characters
 function getCharacters(page, done) {
    const results = fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
 
@@ -8,34 +9,33 @@ function getCharacters(page, done) {
        });
      }
 
-
-
-
-/***** PAGINACION *****/
+/***** PAGINATION *****/
 
 let currentPage = 1;
 
-
-
+// This function update the characters and have the pagination logic
 function updateCharacters() {
-   getCharacters(currentPage, data => {  
+   getCharacters(currentPage, data => { 
+      // First we paint the Bottoms 
       const content = document.createElement ("div");
       characters.innerHTML = "";
       verPersonajes.innerHTML = `
       <button id="prevPage">Anterior</button>
       <button id="nextPage">Siguiente</button>
       `
+      // Logic botton to go back
       document.getElementById("prevPage").addEventListener("click", () => {
          if (currentPage > 1) {
              currentPage--;
              updateCharacters();
          }
       });
-      
+      // Logic button to go forward
       document.getElementById("nextPage").addEventListener("click", () => {
          currentPage++;
          updateCharacters();
       });
+      //Pain the cards from the data api
       data.results.forEach(item => {
          const content = document.createElement ("div");
             content.innerHTML = `
@@ -69,12 +69,11 @@ function updateCharacters() {
             </div>
             <!-- FIN de CARTA-->
             `;
-            characters.append(content)
-            
+            characters.append(content)  
             
          });        
       });
    };
-
+// Call the function
 updateCharacters();
 
